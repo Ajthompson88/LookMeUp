@@ -78,7 +78,8 @@ To set up the challenge locally:
 
     | Script | Description | 
     |--------|-------------|
-
+    |npm run dev|Vite|
+   
 ## **Available Scripts**
 
 |Script|Description|     
