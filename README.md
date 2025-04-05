@@ -1,25 +1,25 @@
 # **Look Me Up - Candidate Finder**
 
-## **Description**
+## **📜 Description**
 
-### **Overview**
+### **📋 Overview**
 
 The Candidate Search Application is designed to help employers efficiently review and shortlist potential candidates. With a streamlined and interactive interface, users can quickly view candidate profiles and make decisions with just a click.
 
-### **Features**
+### **✨ Features**
 
-**Candidate Profile Display**:  
+**👉Candidate Profile Display**:  
 When the candidate search page loads, a single candidate's profile is shown—including details like name, username, location, avatar, email, HTML URL, and company.  
 
-   *  **Save Candidate**: Click the "+" button to add the current candidate to your list of potential hires and automatically view the next candidate.
-   * **Skip Candidate**: Click the "-" button to move on to the next candidate without saving the current one.                                                                                  
+   * 👉**Save Candidate**: Click the "+" button to add the current candidate to your list of potential hires and automatically view the next candidate.
+   * 👉**Skip Candidate**: Click the "-" button to move on to the next candidate without saving the current one.                                                                                  
  
-**Feedback When No Candidates Remain**:      
+👉**Feedback When No Candidates Remain**:      
 The application clearly communicates when there are no more candidates available to review.
-**Persistent Candidate List**:
+👉**Persistent Candidate List**:
 Accepted candidates are displayed on a dedicated potential candidates page, ensuring that your selections persist even after page reloads. If no candidates have been accepted, a friendly message is shown.
 
-## **User Story**
+## 📖**User Story**
 
 __AS AN__ employer
 
@@ -27,7 +27,8 @@ __I WANT__ a candidate search application
 
 __SO THAT__ I can hire the best candidates
 
-## **Acceptance Criteria** 
+## ❗**Acceptance Criteria** ❗
+
 __GIVEN__ a candidate search application 
 
 __WHEN__ the candidate search page loads
@@ -63,7 +64,7 @@ __WHEN__ I click the "-" button
 __THEN__ the next candidate's information should be displayed without saving the current candidate
 
 
-## **Installation**
+## ⚙️**Installation**
 To set up the challenge locally:
 
 1. Clone the Repository
@@ -78,10 +79,8 @@ To set up the challenge locally:
 
     | Script | Description | 
     |--------|-------------|
-      
-    |  | npm run dev | vite |  |
 
-## **Available Scripts**
+## ⚙️**Available Scripts**
 
 |Script|Description|     
 |--------|-------------|
@@ -90,7 +89,7 @@ To set up the challenge locally:
 |npm run lint|Runs ESLint to check for code issues|
 |npm run preview|Previews the production build locally|
 
-## **Tech Stack**
+## 💻**Tech Stack**
 
 |Tech|Description|
 |----|-----------|
