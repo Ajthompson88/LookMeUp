@@ -1,6 +1,20 @@
 # **Look Me Up - Candidate Finder**
 
+## Table of Contents
+
+- [Description](#description)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Installation](#installation-⚙️)
+- [Available Scripts](#available-scripts-⚙️)
+- [Tech Stack](#tech-stack-💻)
+- [Development](#development)
+- [Contributions](#contributions)
+- [File Structure](#file-structure)
+- [Acknowledgements](#acknowledgements)
 ## **📜 Description**
+
+The Look Me Up - Candidate Finder is a web application designed to streamline the hiring process for employers. It allows users to search, review, and shortlist potential candidates with ease. Featuring an intuitive interface, the app displays detailed candidate profiles, supports saving preferred candidates, and provides persistent storage for selections. Whether you're hiring for a small team or a large organization, this tool simplifies candidate management and ensures you never miss out on top talent.
 
 ### **📋 Overview**
 
@@ -27,7 +41,7 @@ __I WANT__ a candidate search application
 
 __SO THAT__ I can hire the best candidates
 
-## ❗**Acceptance Criteria** ❗
+## **Acceptance Criteria** 
 
 __GIVEN__ a candidate search application 
 
@@ -64,7 +78,7 @@ __WHEN__ I click the "-" button
 __THEN__ the next candidate's information should be displayed without saving the current candidate
 
 
-## ⚙️**Installation**
+## **Installation** ⚙️
 To set up the challenge locally:
 
 1. Clone the Repository
@@ -81,7 +95,7 @@ To set up the challenge locally:
     |--------|-------------|
     |npm run dev|Vite|
 
-## ⚙️**Available Scripts**
+## **Available Scripts** ⚙️
 
 |Script|Description|     
 |--------|-------------|
@@ -90,7 +104,7 @@ To set up the challenge locally:
 |npm run lint|Runs ESLint to check for code issues|
 |npm run preview|Previews the production build locally|
 
-## 💻**Tech Stack**
+## **Tech Stack** 💻
 
 |Tech|Description|
 |----|-----------|
@@ -103,3 +117,85 @@ To set up the challenge locally:
 
 ## **Development**
 
+### Prerequisites
+
+Before starting development, ensure you have the following installed:
+- **Node.js** (v16 or higher)
+- **npm** (v8 or higher) or **Yarn**
+- A code editor like **Visual Studio Code**
+
+### Setup Instructions
+1. Clone the repository:
+   ```bash  
+
+   git clone https://github.com/Ajthompson88/look-me-up.git
+
+2. 
+    Navigate to the project directory
+    - cd look-me-up
+
+3. 
+    Start the development server:
+    - npm install
+
+    Build the project for production:
+    - npm run dev 
+
+    Run the linter to check for code issues:
+    - npm run build
+
+    Run the linter to check for code issues:
+    - npm run lint
+
+    Preview the production build locally:
+    - npm run preview
+
+## Code Structure
+
+## Contributions 
+
+We welcome contributions! Please follow these steps:
+
+1. Fork the repository.
+
+2. Create a new branch for your feature or bug fix:
+    ```bash 
+    git checkout -b feature-name
+    ```
+3. Commit your changes and push the branch:
+    ```bash 
+    git commit -m "Add feature-name"
+    git push origin feature-name
+    ```
+4. Open a pull request on GitHub.
+
+##  File Structure
+```
+LookMeUp/
+├── public/                     # Static assets (e.g., index.html, favicon)
+│   └── index.html              # Main HTML file
+├── src/                        # Source code
+│   ├── api/                    # API utility functions
+│   │   └── API.tsx             # Functions for interacting with external APIs
+│   ├── components/             # Reusable UI components
+│   │   ├── Header.tsx          # Example: Header component
+│   │   ├── Footer.tsx          # Example: Footer component
+│   │   └── CandidateCard.tsx   # Example: Candidate card component
+│   ├── interfaces/             # TypeScript interfaces and types
+│   │   └── Candidate.interface.tsx # Interface for Candidate objects
+│   ├── pages/                  # Main application pages
+│   │   └── CandidateSearch.tsx # Candidate search page
+│   ├── styles/                 # Global and component-specific styles
+│   │   └── global.css          # Example: Global CSS file
+│   ├── App.tsx                 # Main application component
+│   ├── main.tsx                # Application entry point
+│   └── vite-env.d.ts           # Vite environment types
+├── .eslintrc.js                # ESLint configuration
+├── tsconfig.json               # TypeScript configuration
+├── vite.config.ts              # Vite configuration
+├── package.json                # Project dependencies and scripts
+├── README.md                   # Project documentation
+└── node_modules/               # Installed dependencies (auto-generated)
+```
+
+## Acknowledgements
