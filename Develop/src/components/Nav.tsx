@@ -1,8 +1,35 @@
-const Nav = () => {
-  // TODO: Add necessary code to display the navigation bar and link between the pages
+// src/components/Nav.tsx
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+const Nav: React.FC = () => {
   return (
-    <div>Nav</div>
-  )
+    <nav className="p-4 bg-blue-600 text-white">
+      <ul className="flex space-x-6">
+        <li>
+          <NavLink
+            to="/"
+            end
+            className={({ isActive }) =>
+              isActive ? 'underline font-semibold' : 'hover:underline'
+            }
+          >
+            Search
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/SavedCandidates"
+            className={({ isActive }) =>
+              isActive ? 'underline font-semibold' : 'hover:underline'
+            }
+          >
+            Potential Candidates
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
 };
 
 export default Nav;
