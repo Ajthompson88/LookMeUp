@@ -1,23 +1,18 @@
-const searchGithub = async (searchTerm: string) => {
-  try {
-    // For example, use the searchTerm in a query. This is just an example endpoint.
-    const response = await fetch(
-      `https://api.github.com/search/users?q=${encodeURIComponent(searchTerm)}`,
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
-        },
-      }
-    );
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error('invalid API response, check the network tab');
+const searchGithub = async () => {
+  let start = Math.floor(Math.random() * 100000000)+1;
+  const response = await fetch(
+    `https://api.github.com/users?since=${start}`,
+    {
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
+      },
     }
-    return data;
-  } catch (err) {
-    console.log('an error occurred', err);
-    return [];
+  );
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error('Invalid API response');
   }
+  return data; // Assuming the API returns an array of items
 };
 
 const searchGithubUser = async (username: string) => {
@@ -33,7 +28,7 @@ const searchGithubUser = async (username: string) => {
     }
     return data;
   } catch (err) {
-     console.log('an error occurred', err);
+    console.log('an error occurred', err);
     return {};
   }
 };

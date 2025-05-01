@@ -1,31 +1,14 @@
-// src/components/Nav.tsx
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Nav: React.FC = () => {
+const Nav = () => {
   return (
-    <nav className="p-4 bg-blue-600 text-white">
-      <ul className="flex space-x-6">
-        <li>
-          <NavLink
-            to="/"
-            end
-            className={({ isActive }) =>
-              isActive ? 'underline font-semibold' : 'hover:underline'
-            }
-          >
-            Search
-          </NavLink>
+    <nav className="nav">
+      <ul>
+        <li className="nav-item">
+          <Link to="/search" className="nav-link">Home</Link>
         </li>
-        <li>
-          <NavLink
-            to="/SavedCandidates"
-            className={({ isActive }) =>
-              isActive ? 'underline font-semibold' : 'hover:underline'
-            }
-          >
-            Potential Candidates
-          </NavLink>
+        <li className="nav-item">
+          <Link to="/potential" className="nav-link">Potential Candidates</Link>
         </li>
       </ul>
     </nav>

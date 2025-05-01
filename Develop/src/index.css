@@ -96,18 +96,28 @@ tbody tr:nth-child(odd) {
 
 .nav {
   display: flex;
-  justify-content: flex-start;
-  padding: 1em 2em;
+  justify-content: flex-start; 
+  align-items: left; 
+  padding: 1em 2em; 
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .nav-item {
   padding: 0 0.5rem;
   list-style: none;
-}
+  display:inline-flex;
+  align-items: left;
+ }
 
 .nav-link {
   color: #fff;
   text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
 }
 
 .active {
@@ -117,4 +127,40 @@ tbody tr:nth-child(odd) {
 .table {
   width: 80vw;
   table-layout: fixed;
+}
+
+/* in src/index.css (or styles.css) */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-body h2 {
+  margin: 0 0 0.25rem;
+}
+
+.card-body a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #646cff;
+  height: 500px;
+  width: 250px;
 }
