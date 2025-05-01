@@ -1,0 +1,13 @@
+
+# Render in-repo service configuration for deploying your Vite React app as a static Web Service
+services:
+  - type: web
+    name: lookmeup-static
+    env: static
+    repo: https://github.com/your-username/your-repo  # ← update with your actual GitHub URL
+    branch: main
+    buildCommand: npm install && npm run build
+    publishPath: dist
+    envVars:
+      - key: VITE_GITHUB_TOKEN
+        fromSecret: GITHUB_TOKEN  # store your PAT as a Render Secret named GITHUB_TOKEN
