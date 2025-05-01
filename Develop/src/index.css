@@ -154,7 +154,6 @@ main {
 
 .controls .btn-next {
   background: linear-gradient(to bottom, #0d0056, #000020);
-
   border-radius: 0; /* Square shape */
   border: oldlace 1px solid;
   white-space: nowrap;
