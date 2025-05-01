@@ -1,12 +1,12 @@
-# render.yaml (at the same level as package.json, src/, public/, etc.)
 services:
-  - type: static
-    name: lookmeup-static
-    env: static
-    repo: https://github.com/Ajthompson88/LookMeUp  # ← your real GitHub URL
+  - type: web           # <-- dynamic Node.js web service
+    name: lookmeup-web  # any unique name
+    env: node           # tells Render to spin up a Node runtime
+    plan: free          # or “starter”, “professional”, etc.
+    repo: https://github.com/your-username/LookMeUp
     branch: main
     buildCommand: npm install && npm run build
-    publishDirectory: dist
+    startCommand: npm run preview  # or “serve -s dist” if you install “serve”
     envVars:
       - key: VITE_GITHUB_TOKEN
         fromSecret: GITHUB_TOKEN
