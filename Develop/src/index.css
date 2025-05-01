@@ -1,166 +1,257 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap');
+/* index.css */
 
-:root {
-  font-family: 'Inter Tight', system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 1. Global Reset & Background */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  background: linear-gradient(
-    180deg,
-    rgb(32, 44, 136) 0%,
-    rgba(9, 9, 121, 1) 15%,
-    rgba(0, 2, 18, 1) 100%
-  );
-  background-size: cover;
-  background-repeat: no-repeat no-repeat;
-  background-position: center center;
+html, body {
   margin: 0;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
-
-main {
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, #0d0056, #000020);
+  font-family: 'Papyrus', sans-serif;
   color: #fff;
+}
+
+/* 2. Header & Navigation */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 100vh;
+  background: linear-gradient(to right, #0d0056, #15007f);
+  padding: 1rem 2rem;
+  z-index: 10;
+}
+
+.site-header .nav {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header .nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: box-shadow 0.3s ease, color 0.3s ease;
+}
+
+.site-header .nav-link:hover {
+  color: #00ff00;
+  box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.8); /* Glow effect */
+}
+
+.site-header .nav-link.active {
+  font-weight: bold;
+}
+.site-header .nav-list {
+     display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+ 
+}
+/* 3. Main Content */
+main {
+  padding-top: 5rem; /* Space for fixed header */
+  text-align: center;
+}
+
+/* 4. Candidate Card */
+.card {
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6); /* Glow effect */
+  transform: scale(1.05); /* Slightly enlarge the card */
+}
+
+/* Top image panel */
+.card-image {
+  background: #e7eff8;
+  padding: 1rem;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+/* Bottom info panel */
+.card-body {
+  background: #000;
+  text-align: left;
+  padding: 1rem;
+}
+
+.card-body h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+}
+
+.card-body h2 small {
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+.card-body p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.card-body a {
+  color: #58a6ff;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-body a:hover {
+  text-decoration: underline;
+  box-shadow: 0 0 10px 2px rgba(88, 166, 255, 0.8); /* Glow effect */
+}
+
+/* 5. Controls (± buttons) */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 2rem 0;
+}
+
+.controls button {
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Papyrus', sans-serif;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.controls button:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.6); /* Glow effect */
+  transform: scale(1.1); /* Slightly enlarge the button */
+}
+
+.controls .btn-prev {
+  background: linear-gradient(to bottom, #0d0056, #000020);
+  
+  border-radius: 0; /* Square shape */
+  border: oldlace 1px solid;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.controls .btn-next {
+  background: linear-gradient(to bottom, #0d0056, #000020);
+
+  border-radius: 0; /* Square shape */
+  border: oldlace 1px solid;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* wrap & center */
+.main {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-tr {
-  border-radius: 10px;
-  background-color: #000;
-  color: white;
-}
-
-tbody tr:nth-child(odd) {
-  background-color: #333333;
-}
-
-.nav {
-  display: flex;
-  justify-content: flex-start; 
-  align-items: left; 
-  padding: 1em 2em; 
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.nav-item {
-  padding: 0 0.5rem;
-  list-style: none;
-  display:inline-flex;
-  align-items: left;
- }
-
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-}
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-.active {
-  font-weight: 700;
-}
-
-.table {
-  width: 80vw;
+/* table container */
+.saved-table {
+  width: 100%;
+  max-width: 1200px;
+  border-collapse: collapse;
+  margin: 2rem 0;
   table-layout: fixed;
 }
 
-/* in src/index.css (or styles.css) */
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1rem;
-  padding: 1rem 0;
-}
-
-.card {
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
+/* headers */
+.saved-table th {
   padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  background: #000;
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid #111;
 }
 
-.avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
+/* cells */
+.saved-table td {
+  padding: 1rem;
+  border: 1px solid #111;
+  vertical-align: middle;
+  color: #fff;
+}
+
+/* zebra stripes */
+.saved-table tbody tr:nth-child(odd) td {
+  background: #3a3a3a;
+}
+.saved-table tbody tr:nth-child(even) td {
+  background: #000;
+}
+
+/* avatar thumbnails */
+.saved-table .thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
   object-fit: cover;
 }
 
-.card-body h2 {
-  margin: 0 0 0.25rem;
+/* bio column wraps text */
+.saved-table .bio {
+  white-space: pre-wrap;
+  line-height: 1.4;
 }
 
-.card-body a {
-  font-size: 0.9rem;
-  text-decoration: none;
-  color: #646cff;
-  height: 500px;
-  width: 250px;
+/* reject button */
+.btn-reject {
+  background: red;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #000;
 }
+
+/* Glow effect for table rows */
+.saved-table tbody tr:hover td {
+  background: #444;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.6); /* Glow effect */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Glow effect for reject button */
+.saved-table .btn-reject {
+  background: red;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #000;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.saved-table .btn-reject:hover {
+  box-shadow: 0 0 15px 5px white; /* Red glow effect */
+  transform: scale(1.1); /* Slightly enlarge the button */
+}
+

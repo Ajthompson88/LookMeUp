@@ -1,16 +1,17 @@
+// src/App.tsx
 import { Outlet } from 'react-router-dom';
 import Nav from './components/Nav';
-import './index.css';
+import './index.css'; // Ensure global styles are applied
 
-function App() {
+export default function App() {
   return (
     <>
-      <Nav />
+      <header className= "site-header">
+        <Nav />
+      </header>
       <main>
         <Outlet />
       </main>
     </>
   );
 }
-
-export default App;

@@ -1,29 +1,38 @@
 // src/components/CandidateCard.tsx
-import React from 'react';
+import { GithubUserDetail } from '../api/API';
 
-interface Candidate {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
+export default function CandidateCard({
+  candidate,
+}: {
+  candidate: GithubUserDetail;
+}) {
+  return (
+    <div className="card">
+      <div className="card-image">
+        <img src={candidate.avatar_url} alt={candidate.login} />
+      </div>
+      <div className="card-body">
+        <h2>
+          {candidate.name ?? candidate.login}{' '}
+          <small>({candidate.login})</small>
+        </h2>
 
-export const CandidateCard: React.FC<{ candidate: Candidate }> = ({ candidate }) => (
-  <div className="card">
-    <img
-      className="avatar"
-      src={candidate.avatar_url}
-      alt={`${candidate.login} avatar`}
-    />
-    <div className="card-body">
-      <h2>{candidate.login}</h2>
-      <a
-        href={candidate.html_url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        View Profile
-      </a>
+        {/* Always show these fields, falling back if empty */}
+        <p>Location: {candidate.location ?? 'Not specified'}</p>
+
+        <p>
+          Email:{' '}
+          {candidate.email ? (
+            <a href={`mailto:${candidate.email}`}>{candidate.email}</a>
+          ) : (
+            'Not specified'
+          )}
+        </p>
+
+        <p>Company: {candidate.company ?? 'Not specified'}</p>
+
+        <p>Bio: {candidate.bio ?? 'Not specified'}</p>
+      </div>
     </div>
-  </div>
-);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+  );
+}

@@ -1,63 +1,98 @@
 // src/pages/CandidateSearch.tsx
+import { useState, useEffect, useCallback } from 'react';
+import {
+  fetchRandomUser,
+  fetchUserByLogin,
+  GithubUserDetail,
+} from '../api/API';
+import CandidateCard from '../components/CandidateCard';
+import { saveCandidate } from '../utils/localStorage';
+import '../../src/index.css';
 
-import { useEffect, useState } from 'react';
-import { searchGithub } from '../api/API';
-import { CandidateCard } from '../components/CandidateCard';
+export default function CandidateSearch() {
+  const [candidate, setCandidate] = useState<GithubUserDetail | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [history, setHistory] = useState<string[]>([]);
+  const [index, setIndex] = useState(0);
 
-interface Result {
-  login: string;
-  avatar_url: string;
-  html_url: string;
-}
-
-const CandidateSearch = () => {
-  const [results, setResults] = useState<Result[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleSearch = async () => {
-    const data: Result[] = await searchGithub();
-    setResults(data);
-    setCurrentIndex(0); // Reset to the first candidate when new results are fetched
-  };
-
-  const prev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex > 0 ? prevIndex - 1 : results.length - 1));
-  };
-
-  const next = () => {
-    setCurrentIndex((prevIndex) => (prevIndex < results.length - 1 ? prevIndex + 1 : 0));
-  };
-
-  useEffect(() => {
-    handleSearch();
+  // Function to load a random candidate
+  const loadRandom = useCallback(() => {
+    setLoading(true);
+    fetchRandomUser()
+      .then(u => {
+        if (!u?.login) throw new Error('Invalid user data');
+        setCandidate(u);
+        setHistory(prev => {
+          // Avoid adding duplicate candidates to history
+          if (prev.includes(u.login)) return prev;
+          return [...prev, u.login];
+        });
+      })
+      .catch(err => {
+        console.error('Error fetching random user:', err);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  return (
-    <div>
-      <h1>Candidate Search</h1>
-      {results.length > 0 ? (
-        <>
-          <CandidateCard
-            candidate={results[currentIndex]}
-            key={results[currentIndex].login}
-          />
-          <div style={{ marginTop: '1rem' }}>
-            <button onClick={prev} disabled={results.length < 2}>
-              -
-            </button>
-            <button onClick={next} disabled={results.length < 2} style={{ marginLeft: '0.5rem' }}>
-              +
-            </button>
-          </div>
-        </>
-      ) : (
-        <p>Loading candidates…</p>
-      )}
-      <div>
-        <button onClick={handleSearch}>Search</button>
-      </div>
-    </div>
-  );
-};
+  // Load a candidate when the component mounts
+  useEffect(() => {
+    loadRandom();
+  }, [loadRandom]);
 
-export default CandidateSearch;
+  // Load a candidate from history when the index changes
+  useEffect(() => {
+    if (!history[index]) return;
+    setLoading(true);
+    fetchUserByLogin(history[index])
+      .then(u => {
+        if (!u) throw new Error('Invalid user data');
+        setCandidate(u);
+      })
+      .catch(err => {
+        console.error('Error fetching user by login:', err);
+      })
+      .finally(() => setLoading(false));
+  }, [index, history]);
+
+  // Handle rejecting a candidate
+  const handleReject = () => {
+    setIndex(prevIndex => {
+      if (prevIndex < history.length - 1) {
+        return prevIndex + 1; // Move to the next candidate in history
+      } else {
+        loadRandom(); // Load a new random candidate
+        return prevIndex; // Keep the index the same
+      }
+    });
+  };
+
+  // Handle accepting a candidate
+  const handleAccept = () => {
+    if (!candidate) return;
+    saveCandidate(candidate); // Save the candidate to local storage
+    handleReject(); // Move to the next candidate
+  };
+
+  return (
+    <>
+      <h1>Candidate Search</h1>
+
+      {loading ? (
+        <p>Loading…</p>
+      ) : candidate ? (
+        <CandidateCard candidate={candidate} />
+      ) : (
+        <p>Error loading candidate</p>
+      )}
+
+      <div className="controls">
+        <button className="btn-next" onClick={handleAccept} title="Accept">
+          Save
+        </button>
+        <button className="btn-prev" onClick={handleReject} title="Reject">
+          Reject
+        </button>
+      </div>
+    </>
+  );
+}

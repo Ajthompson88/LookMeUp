@@ -1,18 +1,31 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Nav = () => {
-  return (
-    <nav className="nav">
-      <ul>
-        <li className="nav-item">
-          <Link to="/search" className="nav-link">Home</Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/potential" className="nav-link">Potential Candidates</Link>
-        </li>
-      </ul>
-    </nav>
-  );
-};
+const Nav = () => (
+  <nav className="nav">
+    <ul className="nav-list">
+      <li className="nav-item">
+        <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+        >
+          Search
+        </NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink
+          to="/saved"
+          className={({ isActive }) =>
+            isActive ? 'nav-link active' : 'nav-link'
+          }
+        >
+          Saved Candidates
+        </NavLink>
+      </li>
+    </ul>
+  </nav>
+);
 
 export default Nav;
