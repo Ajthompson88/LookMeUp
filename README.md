@@ -8,6 +8,8 @@
 
 - [Acceptance Criteria](#acceptance-criteria)
 
+- [Demo Video](#demo-video)
+
 - [Installation](#installation-⚙️)
 
 - [Available Scripts](#available-scripts-⚙️)
@@ -89,6 +91,10 @@ __WHEN__ I click the "-" button
 
 __THEN__ the next candidate's information should be displayed without saving the current candidate
 
+## Demo Video
+Here is how the candidate search works in the linked video below.
+
+[Look Me Up](https://app.screencastify.com/v3/watch/nRg7Se6uJHxFR5H6xlUU)
 
 ## **Installation** ⚙️
 To set up the challenge locally:
