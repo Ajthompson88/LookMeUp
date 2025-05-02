@@ -29,6 +29,7 @@ export default function CandidateSearch() {
         });
       })
       .catch(err => {
+        setIndex(index +1); // Move to the next candidate in history
         console.error('Error fetching random user:', err);
       })
       .finally(() => setLoading(false));
