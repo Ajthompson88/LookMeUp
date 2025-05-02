@@ -3,15 +3,27 @@
 ## Table of Contents
 
 - [Description](#description)
+
 - [User Story](#user-story)
+
 - [Acceptance Criteria](#acceptance-criteria)
+
 - [Installation](#installation-⚙️)
+
 - [Available Scripts](#available-scripts-⚙️)
+
 - [Tech Stack](#tech-stack-💻)
+
 - [Development](#development)
+
 - [Contributions](#contributions)
+
 - [File Structure](#file-structure)
+
 - [Acknowledgements](#acknowledgements)
+
+- [License](#license)
+
 ## **📜 Description**
 
 The Look Me Up - Candidate Finder is a web application designed to streamline the hiring process for employers. It allows users to search, review, and shortlist potential candidates with ease. Featuring an intuitive interface, the app displays detailed candidate profiles, supports saving preferred candidates, and provides persistent storage for selections. Whether you're hiring for a small team or a large organization, this tool simplifies candidate management and ensures you never miss out on top talent.
@@ -150,7 +162,11 @@ Before starting development, ensure you have the following installed:
     Preview the production build locally:
     - npm run preview
 
-## Code Structure
+### Issues
+
+If you are having problems getting a candidate to load refer to this github document about getting a user : 
+
+[Get A User](https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user)
 
 ## Contributions 
 
@@ -199,3 +215,20 @@ LookMeUp/
 ```
 
 ## Acknowledgements
+
+## Acknowledgements
+
+We would like to thank the following resources and individuals for their contributions and support in building this project:
+
+- [GitHub REST API Documentation](https://docs.github.com/en/rest) - For providing detailed documentation on how to interact with GitHub's API.
+- [Vite](https://vitejs.dev/) - For the fast and efficient build tool used in this project.
+- [React](https://reactjs.org/) - For the powerful front-end library that made building the UI seamless.
+- [TypeScript](https://www.typescriptlang.org/) - For enabling static type checking and improving code quality.
+- [React Router DOM](https://reactrouter.com/) - For simplifying routing within the application.
+- [React Icons](https://react-icons.github.io/react-icons/) - For providing scalable and customizable icons.
+- [edX Boot Camps](https://bootcamp.edx.org/) - For providing the foundational knowledge and guidance to complete this project.
+- Special thanks to all contributors and reviewers who helped improve the project.
+
+## License
+
+[MIT LICENSE](LICENSE)
